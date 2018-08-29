@@ -8,5 +8,5 @@ The use of pandas and numpy  is standard. I used io to import the time window fi
 
 The main idea is to create a data frame with both actual value and prediction value by matching the time and stock name. If either actual value or prediction value is not available, the output is 'NA'. Then I filtered out the NA values. 
 
-To compute the average error, I first sum up the errors during each time window and the number of non-NA value pairs in the time window. Then I divide using the Decimal module. 
+To compute the average error, I first sum up the errors during each time window and the number of non-NA value pairs in the time window. Then I divide using the Decimal module. Since we are only computing over the time window from the predicted time, some care must be taken with NA values if two values do not match. I take the time from the predicted file as the default time, and assign 0 if the difference between the two values is not available. This take care of the edge cases. 
 
