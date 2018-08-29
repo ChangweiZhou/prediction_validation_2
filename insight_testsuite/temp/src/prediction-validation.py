@@ -81,7 +81,6 @@ while i<=q:
         output.append('NA')
     i=i+1
 output=np.array(output)
-print(output)
     
 # create the output dataframe
 df_begin=pd.DataFrame(begin)
