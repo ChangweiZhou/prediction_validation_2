@@ -30,15 +30,15 @@ actual.columns=['hour','stock_code', 'stock_price']
 predicted.columns=['hour','stock_code', 'stock_price']
 
 # construct a moving window of elements to take average
-actual_time=actual['hour'].tolist()
-actual_time=list(set(actual_time))
-q=len(actual_time)-sliding_window
+predicted_time=predicted['hour'].tolist()
+predicted_time=list(set(predicted_time))
+q=len(predicted_time)-sliding_window
 begin=[]
 end=[]
 i=0
 while i<=q:
-    begin.append(actual_time[i])
-    end.append(actual_time[i+sliding_window-1])
+    begin.append(predicted_time[i])
+    end.append(predicted_time[i+sliding_window-1])
     i=i+1
 begin=np.array(begin).T
 end=np.array(end).T
@@ -56,7 +56,7 @@ desire.sort_values(by=['hour'])
 
 # extract the sum of differences in each hour
 L=[]
-for time in actual_time:
+for time in predicted_time:
     net=desire.loc[desired['hour']==time]['diff'].sum()
     weight=desire[desire['hour']==time].shape[0]
     L.append([net,weight])
