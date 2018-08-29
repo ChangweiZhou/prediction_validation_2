@@ -1,4 +1,4 @@
-# Prediction and validation - Insight data science challenge
+# Prediction and validation
 
 I used the following library for my script:
 
