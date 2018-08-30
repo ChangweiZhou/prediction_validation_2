@@ -10,3 +10,5 @@ The main idea is to create a data frame with both actual value and prediction va
 
 To compute the average error, I first sum up the errors during each time window and the number of non-NA value pairs in the time window. Then I divide using the Decimal module. Since we are only computing over the time window from the predicted time, some care must be taken with NA values if two values do not match. I take the time from the predicted file as the default time, and assign 0 if the difference between the two values is not available. This take care of the edge cases. 
 
+For the custom test case, I checked the situation when there is no match during an hour, and no match during an entire time window. The later case should output NA while the previous one should give me modified output values. 
+
