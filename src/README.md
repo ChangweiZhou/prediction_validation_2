@@ -1,1 +1,1 @@
-# The main Python script
+# This is the main Python script. 
